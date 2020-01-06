@@ -8,8 +8,8 @@
 current_year <- as.numeric(format(Sys.Date(), "%Y"))
 
 ageCalculator <- function(year){
-  if (class(year)!="numeric") { warning(pc("numeric output expected, got output of class ",
-                                              class(ageCalculator(year)), " instead"))}
+  if (class(year)!="numeric") { stop(cat("Error: numeric output expected, got output of class:",
+                                              class(year), "instead "))}
   else{
   
   
