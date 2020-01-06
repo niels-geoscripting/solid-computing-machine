@@ -5,20 +5,17 @@
 # Niels Cramer; Matthew Needle
 # 6-1-20
 
-current_year <- as.numeric(format(Sys.Date(), "%Y"))
 
-ageCalculator <- function(year){
-  if (class(year)!="numeric") { stop(cat("Error: numeric output expected, got output of class:",
-                                              class(year), "instead "))}
-  else{
-  
-  
-  year <- as.numeric(year)
-  age <- as.numeric(current_year-year)
-  
-  if (age<0){ print("You're not born yet")}
-  if (age>0){ cat("You are", age, "years old")} 
-  }
-  ##browser()
-}
+# Import packages
 
+# Source functions
+source('ageCalculator.R')
+
+
+# Demonstrate function
+print(ageCalculator(1990))
+print(ageCalculator(2010))
+
+# Demonstrate error handling
+print(try(ageCalculator(2021)))
+print(try(ageCalculator("Two thousand and five")))
