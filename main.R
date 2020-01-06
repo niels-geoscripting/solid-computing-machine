@@ -3,12 +3,22 @@
 # Age calculator
 # GitGud
 # Niels Cramer; Matthew Needle
-# 6-1-2020
+# 6-1-20
 
-current_year <- numeric(format(Sys.Date(), "%Y"))
+current_year <- as.numeric(format(Sys.Date(), "%Y"))
 
 ageCalculator <- function(year){
-  age <- year-current_year
+  if (class(year)!="numeric") { warning(pc("numeric output expected, got output of class ",
+                                              class(ageCalculator(year)), " instead"))}
+  else{
   
-  ifelse(age<0, print("You're not born yet"), message("You are", age, "years old"))
+  
+  year <- as.numeric(year)
+  age <- as.numeric(current_year-year)
+  
+  if (age<0){ print("You're not born yet")}
+  if (age>0){ cat("You are", age, "years old")} 
+  }
+  ##browser()
 }
+
